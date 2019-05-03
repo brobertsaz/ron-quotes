@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :quote, only: :index do
+    get :small_quotes, on: :collection
+    get :medium_quotes, on: :collection
+    get :large_quotes, on: :collection
+    put :create_ranks, on: :member
+  end
 end
