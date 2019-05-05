@@ -1,4 +1,4 @@
-# README
+## Challenge
 
 Ron Swanson Challenge
 Using the “Ron Swanson Quotes API” - https://github.com/jamesseanwright/ron-swanson-quotes#ron-swanson-quotes-api
@@ -15,8 +15,7 @@ As an internet user I should be able to rate a Ron Swanson Quote. It should let 
 
 As an internet user I should be able to see the average rating for a Ron Swanson Quote. It should show me the average rating for a quote when displaying the quote
 
-# OVERALL PROCESS
-
+## Overall Process
 After looking at the API data, I decided that making live calls to a static data API was not a good idea. The API does not have filtering and there are only 58 quotes so I created a rake task that `could` be used in a cron job to pull in updated quotes.  Additionally, with the need to be able to vote on quotes and no unique ids in the API, saving the quotes locally seemed the best approach.
 
 ## Setup
@@ -25,6 +24,7 @@ After looking at the API data, I decided that making live calls to a static data
 - Run `bundle` to install all gems
 - Run `rails db:create db:migrate`
 - To populate the database, run the rake task `rake data:fetch_quotes`
+- Start up rails server and have fun
 
 ## Testing
 - I did not use FactoryBot as this was just a small app and I also needed to create quotes with specific word lengths for testing
@@ -35,6 +35,6 @@ To run tests:
 rspec spec/
 ```
 
-
 ## Live App
 The live app is hosted [here](https://rswanson-quotes.herokuapp.com/)
+
