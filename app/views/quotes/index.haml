@@ -1,0 +1,17 @@
+.jumbotron
+  %h1.display-4 Ron Swanson Quotes
+  %p.lead This application will show random quotes and can be filtered by the length of the quote
+  %hr.my-4
+
+  #quote-wrapper
+    = render 'quote'
+  %p
+    Click on a star to rate:
+    - (1..5).each do |star|
+      = link_to add_rating_quote_path(id: @quote.id, rating: star), method: :put do
+        %i.fa.fa-star
+
+.col-md-6.offset-md-3
+  .row.mt-5.btn-toolbar
+    - %w[small medium large].each do |size|
+      = link_to size.capitalize + " Quotes", quotes_path(size: size), class: 'btn btn-primary btn-medium'

@@ -43,6 +43,8 @@ group :development, :test do
   gem 'jazz_fingers'
   gem 'factory_bot'
   gem 'faker'
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -62,3 +64,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'httparty'
 gem 'haml-rails', '~> 2.0'
+gem 'bootstrap'
+gem 'jquery-rails'
+gem 'font-awesome-rails'

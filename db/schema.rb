@@ -15,15 +15,6 @@ ActiveRecord::Schema.define(version: 2019_05_03_233149) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "quote_reviews", force: :cascade do |t|
-    t.bigint "quote_id", null: false
-    t.integer "rating", null: false
-    t.string "rating_ip", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["quote_id"], name: "index_quote_reviews_on_quote_id"
-  end
-
   create_table "quotes", force: :cascade do |t|
     t.string "text"
     t.datetime "created_at", null: false
@@ -31,5 +22,14 @@ ActiveRecord::Schema.define(version: 2019_05_03_233149) do
     t.integer "word_count"
   end
 
-  add_foreign_key "quote_reviews", "quotes"
+  create_table "ratings", force: :cascade do |t|
+    t.bigint "quote_id", null: false
+    t.integer "score", null: false
+    t.string "rating_ip", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quote_id"], name: "index_ratings_on_quote_id"
+  end
+
+  add_foreign_key "ratings", "quotes"
 end

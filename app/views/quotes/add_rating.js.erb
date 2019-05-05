@@ -1,0 +1,7 @@
+<% if @error.presence %>
+  alert("<%= @error.full_messages.join(' ') %>")
+<% else %>
+  alert('Successfully Rated')
+  $("#quote-wrapper").html("<%= j render 'quote' %>")
+<% end %>
+

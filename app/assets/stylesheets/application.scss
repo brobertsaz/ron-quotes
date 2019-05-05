@@ -1,0 +1,9 @@
+@import 'bootstrap';
+@import "font-awesome";
+
+.btn-toolbar .btn{
+    margin-right: 15px;
+}
+.btn-toolbar .btn:last-child{
+    margin-right: 0;
+}

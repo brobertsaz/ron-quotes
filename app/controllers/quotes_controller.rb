@@ -1,18 +1,27 @@
 class QuotesController < ApplicationController
 
   def index
+    @quote =  case params[:size]
+              when 'small'
+                Quote.small_quotes
+              when 'medium'
+                Quote.medium_quotes
+              when 'large'
+                Quote.large_quotes
+              else
+                Quote.all
+              end.sample
   end
 
-  def small_quotes
-    Quote.where("word_count < 5")
-  end
+  def add_rating
+    @quote = Quote.find params[:id]
+    @rating = @quote.ratings.create(score: params[:rating], rating_ip: request.ip)
 
-  def medium_quotes
-    Quote.where("length > 4 and length < 13")
+    if @rating.save
+      flash[:success] = "Successfully Rated Quote"
+    else
+      flash[:success] = @rating.errors.full_messages.join(' ')
+    end
+    render 'index'
   end
-
-  def large_quotes
-    Quote.where("length > 12")
-  end
-
 end
