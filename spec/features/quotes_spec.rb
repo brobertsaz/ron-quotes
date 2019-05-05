@@ -46,8 +46,7 @@ RSpec.describe "Quotes", type: :feature do
     it 'adds rating to quote', js: true do
       visit quotes_path
       first('.fa-star').click
-      binding.pry
-      expect(page).to have_content("Successfully Rated")
+      expect(page).to have_content("Successfully Rated Quote")
     end
   end
 end
