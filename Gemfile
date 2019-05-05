@@ -41,7 +41,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'jazz_fingers'
-  gem 'factory_bot'
   gem 'faker'
   gem 'capybara'
   gem 'selenium-webdriver'
